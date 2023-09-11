@@ -25,13 +25,14 @@ public class RestApiApplication {
             String jSonPrice = restTemplate.getForObject(url, String.class);
             JsonNode root = mapper.readTree(jSonPrice);
 
-            //gets coin name
-            String coinName = root.findValue("activity").asText();
-            //gets coin value in USD
-            String coinPrice = root.findValue("type").asText();
+            //gets activity name
+            String activity = root.findValue("activity").asText();
+            //gets activityType value in USD
+            String activityType = root.findValue("type").asText();
             //print vals
-            System.out.println("activity: " + coinName);
-            System.out.println("type: " + coinPrice);
+
+            System.out.println("activity: " + activity);
+            System.out.println("type: " + activityType);
 
         } catch (JsonProcessingException ex) {
             System.out.println("error in getActivity");
